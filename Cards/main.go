@@ -74,4 +74,19 @@ func main() {
 	City := "Jaipur Pnkaj"
 	fmt.Println([]byte(City)) //[74 97 105 112 117 114 32 80 110 107 97 106]
 
+	// join string
+	finalJOinString := NewDeckFunc()
+	resultvalue := finalJOinString.StringJoinFunc()
+
+	fmt.Println(resultvalue)
+
+	// save string into file pankaj.txt file
+	finalSaveStringintoFIle := finalJOinString.SavedFile("pankaj.txt")
+	fmt.Println("Print saved file", finalSaveStringintoFIle)
+
+	// Read File strings into Pankaj.txt file
+	readFile := ReadStringFile("pankaj.txt")
+
+	fmt.Println("Read File Value ==>>", readFile)
+
 }

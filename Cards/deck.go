@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Define a type
 type Person []string
+type ResultNuber []int64
 
 // Method with a value receiver
 func (p Person) PrintPerson() {
@@ -23,8 +26,8 @@ func (p Person) PrintPerson() {
 func NewDeckFunc() Person {
 	Cards := Person{}
 
-	cardsSuits := []string{"Pankaj", "suri", "Arjun", "Meena"}
-	cardsSet := []string{"Jaipur", "Bundi", "New Delhi", "Roorkee"}
+	cardsSuits := []string{"Pankaj", "suri"}
+	cardsSet := []string{"Jaipur", "Bundi"}
 
 	for _, suits := range cardsSuits {
 		for _, setsValue := range cardsSet {
@@ -66,4 +69,39 @@ func ReadStringFile(fileName string) Person {
 	s := strings.Split(string(bs), " ")
 	return Person(s)
 
+}
+
+// shuffiing fucntion
+func (p Person) shuffiingFunc() {
+	for i := range p {
+		newPostion := rand.Intn(len(p) - 1)
+		p[i], p[newPostion] = p[newPostion], p[i]
+	}
+}
+
+// random nuber genrate
+
+func (p Person) randomGenrateFunc() {
+	newRandom := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(newRandom)
+	fmt.Println(r)
+
+	for i := range p {
+		newPostion := r.Intn(len(p) - 1)
+		p[i], p[newPostion] = p[newPostion], p[i]
+	}
+
+}
+
+func (r ResultNuber) checkEvenOrOddNuber() []string {
+	var result []string
+	for _, num := range r {
+		if num%2 == 0 {
+			result = append(result, fmt.Sprintf("%d is even", num))
+		} else {
+			result = append(result, fmt.Sprintf("%d is odd", num))
+		}
+	}
+
+	return result
 }

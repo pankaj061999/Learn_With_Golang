@@ -89,4 +89,22 @@ func main() {
 
 	fmt.Println("Read File Value ==>>", readFile)
 
+	// shuffling name
+
+	resultShuffling := NewDeckFunc()
+	resultShuffling.shuffiingFunc()
+	resultShuffling.PrintPerson()
+
+	// return random nuber
+	resultShuffling.randomGenrateFunc()
+	resultShuffling.PrintPerson()
+
+	// check slice nuber even or odd
+
+	numbers := ResultNuber{2, 7, 4, 9, 6}
+	messages := numbers.checkEvenOrOddNuber()
+
+	for _, message := range messages {
+		fmt.Println(message)
+	}
 }
